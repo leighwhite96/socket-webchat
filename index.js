@@ -18,6 +18,11 @@ io.on('connection', function(socket){
     io.emit('chat message', msg);
   });
 });
+io.on('connection', function(socket){
+  socket.on('username created', function(u){
+    io.emit('username created', u);
+  });
+});
 
 http.listen(3000, function(){
   console.log('listening on *:3000');
